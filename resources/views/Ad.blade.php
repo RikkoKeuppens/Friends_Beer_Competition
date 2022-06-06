@@ -10,8 +10,11 @@
             @if($randomNumber == 6)
                 doe een adje!
             @endif
-            @if($randomNumber < 6)
+            @if($randomNumber < 6 && $randomNumber > 1)
                 neemt {{$randomNumber}} slokken!
+            @endif
+            @if($randomNumber == 1)
+                neemt {{$randomNumber}} slok!
             @endif
         </h1>
         <div class="text-center beneden">
