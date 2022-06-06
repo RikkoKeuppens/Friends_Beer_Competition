@@ -122,3 +122,18 @@ section{
 body {
     position: relative;
 }
+
+input[type="radio"] {
+    -ms-transform: scale(2); /* IE 9 */
+    -webkit-transform: scale(2); /* Chrome, Safari, Opera */
+    transform: scale(2);
+    margin-top: 12px;
+}
+
+.selected {
+    accent-color: lime;
+}
+
+.notSelected {
+    accent-color: red;
+}

@@ -131,6 +131,21 @@ body {
   position: relative;
 }
 
+input[type=radio] {
+  /* IE 9 */
+  /* Chrome, Safari, Opera */
+  transform: scale(2);
+  margin-top: 12px;
+}
+
+.selected {
+  accent-color: lime;
+}
+
+.notSelected {
+  accent-color: red;
+}
+
 /*!
  * Bootstrap v4.6.1 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors

@@ -17,13 +17,15 @@ class CreateBeersTable extends Migration
             $table->id();
             $table->string("name");
             $table->integer("beerAmount");
+            $table->boolean("selected")->default(true);
             $table->timestamps();
         });
         DB::table('beers')->insert(
             [
                 [
                     'name' => 'Rikko',
-                    'beerAmount' => 0
+                    'beerAmount' => 0,
+                    'selected' => true
                 ]
             ]
         );

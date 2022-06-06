@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Beer;
 use Faker\Provider\Person;
 use Illuminate\Http\Request;
+use function PHPUnit\Framework\isEmpty;
 
 class BeerController extends Controller
 {
@@ -44,6 +45,7 @@ class BeerController extends Controller
         $person = new Beer();
         $person->name = $request->name;
         $person->beerAmount = 0;
+        $person->selected = true;
         $person->save();
         return redirect('/');
     }
@@ -127,9 +129,11 @@ class BeerController extends Controller
 
     public function EditIT(Request $request)
     {
+        $bool = $request->selected === 'true'? true: false;
         $id = $request->id;
         $person = Beer::where('id', '=', $id)->first();
         $person->name = $request->name;
+        $person->selected = $bool;
         if ($request->beerAmount != null)
             $person->beerAmount += $request->beerAmount;
         $person->save();
@@ -138,15 +142,23 @@ class BeerController extends Controller
 
     public function ad()
     {
-        $people = Beer::get();
+        //Random name
+        $people = Beer::where('selected', 'like', true)->get();
         $a=[];
         foreach ($people as $person){
             $name = $person->name;
             array_push($a,$name);
         }
+        if(count($a) == 0){
+            return redirect('/');
+        }
         $random = array_rand($a);
         $randomName = $a[$random];
-        $result = compact('randomName');
+
+        //Random number
+        $randomNumber = rand(1,6);
+
+        $result = compact('randomName', 'randomNumber');
         return view('Ad', $result);
     }
 }

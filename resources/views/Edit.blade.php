@@ -9,9 +9,9 @@
     <form action="/{{ $person->id }}/EditIT" method="post">
         @method('put')
         @csrf
-        <div class="form-group mt-4 col-12">
+        <div class="form-group mt-4 col-12 row">
             <input type="text" name="name" id="name"
-                   class="form-control @error('name') is-invalid @enderror"
+                   class="col-8 form-control @error('name') is-invalid @enderror"
                    placeholder="Name"
                    minlength="3"
                    required
@@ -19,6 +19,9 @@
             @error('name')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
+            <input class="col-1 selected offset-1" type="radio" @if($person->selected == true) checked @endif id="selected" name="selected" value="true">
+            <input class="col-1 notSelected offset-1" type="radio" @if($person->selected != true) checked @endif id="notSelected" name="selected" value="false">
+
             <input type="number" name="beerAmount" id="beerAmount"
                    class="form-control mt-4 @error('beerAmount') is-invalid @enderror"
                    placeholder="Biertjes"
