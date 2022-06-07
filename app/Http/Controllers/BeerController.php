@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Beer;
+use App\Setting;
 use Faker\Provider\Person;
 use Illuminate\Http\Request;
 use function PHPUnit\Framework\isEmpty;
@@ -17,7 +18,11 @@ class BeerController extends Controller
     public function index()
     {
         $beers = Beer::orderBy('beerAmount', 'desc')->get();
-        $result = compact('beers');
+        $total = 0;
+        foreach ($beers as $beer){
+            $total += $beer->beerAmount;
+        }
+        $result = compact('beers', 'total');
         return view('List', $result);
     }
 
@@ -142,6 +147,9 @@ class BeerController extends Controller
 
     public function ad()
     {
+        //Get value
+        $setting = Setting::first();
+        $value = $setting->ad;
         //Random name
         $people = Beer::where('selected', 'like', true)->get();
         $a=[];
@@ -157,6 +165,21 @@ class BeerController extends Controller
 
         //Random number
         $randomNumber = rand(1,6);
+        if ($value == 3 && $randomNumber != 6){
+            $randomNumber = rand(1,6);
+        }
+        elseif ($value == 12 && $randomNumber > 3){
+            $randomNumber = rand(1,6);
+        }
+        elseif ($value == 18 && $randomNumber > 4){
+            $randomNumber = rand(1,6);
+        }
+        elseif ($value == 0){
+            $randomNumber = rand(1,5);
+        }
+        elseif ($value == 1){
+            $randomNumber = 6;
+        }
 
         $result = compact('randomName', 'randomNumber');
         return view('Ad', $result);

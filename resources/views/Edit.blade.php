@@ -31,6 +31,9 @@
             @enderror
             <input type="hidden" id="id" name="id" value="{{$person->id}}">
         </div>
-        <button type="submit" class="mt-4 btn btn-outline-light btn-rounded ml-3">Aanpassen</button>
+        <button type="submit" class="mt-4 btn btn-outline-light btn-rounded ">Aanpassen</button>
     </form>
+    @if($person->id == 1)
+        <a href="/settings"><i class="pint fa-solid fa-gear mt-5"></i></a>
+    @endif
 </section>

@@ -1,3 +1,4 @@
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,8 +50,19 @@
                     </td>
                 </tr>
             @endforeach
+            <tr>
+                <td class="col-6 font-weight-bold">Totaal:</td>
+                <td class="text-center font-weight-bold">{{$total}}</td>
+                <td></td>
+                <td></td>
+            </tr>
             </tbody>
         </table>
     </div>
-    <a href="create" class="mt-4 btn btn-outline-light btn-rounded" data-mdb-ripple-color="dark">Speler toevoegen</a>
+    <div>
+        <a href="create" class="mt-4 btn btn-outline-light btn-rounded" data-mdb-ripple-color="dark">Speler toevoegen</a>
+    </div>
+
 </section>
+<?php
+require __DIR__ . '/List.blade.php';

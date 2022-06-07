@@ -20,6 +20,10 @@ Route::delete('/', 'BeerController@delete');
 Route::get('/{id}/EditProfile', 'BeerController@EditProfile');
 Route::put('/{id}/EditIT', 'BeerController@EditIT');
 Route::get('/ad', 'BeerController@ad');
+Route::get('/settings', 'SettingController@settings');
+Route::put('/{id}/setSetting', 'SettingController@setSetting');
+
+
 
 
 
