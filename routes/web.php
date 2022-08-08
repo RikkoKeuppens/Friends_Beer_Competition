@@ -15,13 +15,23 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('/', 'BeerController');
 Route::put('/{id}','BeerController@plusAndMin');
-Route::get('lol123', 'BeerController@deletePage');
+Route::get('/delete', 'BeerController@deletePage');
 Route::delete('/', 'BeerController@delete');
 Route::get('/{id}/EditProfile', 'BeerController@EditProfile');
 Route::put('/{id}/EditIT', 'BeerController@EditIT');
 Route::get('/ad', 'BeerController@ad');
 Route::get('/settings', 'SettingController@settings');
 Route::put('/{id}/setSetting', 'SettingController@setSetting');
+Route::get('/prono', 'PronoController@Prono');
+Route::put('/pronoSubmit/{id}', 'PronoController@PronoSubmit');
+Route::get('/regelement', 'PronoController@rules');
+
+
+/*
+    Premier league
+ */
+
+Route::resource('/PL/PLindex', 'PLController');
 
 
 

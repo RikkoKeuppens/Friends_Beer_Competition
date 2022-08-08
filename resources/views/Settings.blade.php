@@ -2,7 +2,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}" />
-    <link rel="stylesheet" href="">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+    <title>Instellingen</title>
 </head>
 <section>
     <h1>Settings</h1>
@@ -53,4 +54,5 @@
         </form>
     </div>
     <hr>
+    <h2><a class="noclass" href="/delete">Spelers verwijderen</a></h2>
 </section>

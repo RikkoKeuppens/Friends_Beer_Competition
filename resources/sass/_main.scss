@@ -51,11 +51,19 @@ td{
 /* demo styles */
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+.Blue {
+    background: -webkit-linear-gradient(left, #1f9ace, #166fb0);
+    background: linear-gradient(to right, #1f9ace, #166fb0);
+}
+
 body{
     background: -webkit-linear-gradient(left, #9ccb25, #2ca23c);
     background: linear-gradient(to right, #9ccb25, #2ca23c);
     font-family: 'Roboto', sans-serif;
 }
+
+
+
 section{
     margin: 50px;
 }
@@ -113,6 +121,13 @@ section{
     padding:  5px 10px;
 }
 
+.pron {
+    background-color: #4f78c4;
+    color: #ffffff;
+    border: none;
+    padding:  5px 10px;
+}
+
 .btnPlus {
     padding-bottom: 0;
 }
@@ -145,6 +160,25 @@ input[type="radio"] {
 
 .notSelected {
     accent-color: red;
+}
+
+.noclass{
+    color: #ffffff;
+    font-style: normal;
+}
+
+.white {
+    color: #ffffff;
+    margin-bottom: 0;
+}
+
+.noText {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+ul {
+    color: #ffffff;
 }
 
 

@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}" />
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+    <title>Bier competitie</title>
 </head>
 <section>
     <!--for demo wrap-->
@@ -12,7 +13,7 @@
         <table cellpadding="0" cellspacing="0" border="0">
             <thead>
             <tr>
-                <th class="col-6">Naam</th>
+                <th class="text-left">Naam</th>
                 <th class="text-center">Biertjes</th>
                 <th class="text-right"></th>
                 <th class="text-right"></th>
@@ -27,7 +28,7 @@
                 <tr>
                     <form action="/{{$beer->id}}/EditProfile" method="get">
                         <input type="hidden" name="id" id="id" value="{{$beer->id}}">
-                        <td class="col-6"><button class="btnNone">{{$beer->name}}</button></td>
+                        <td class="text-left"><button class="btnNone">{{$beer->name}}</button></td>
                     </form>
                     <td class="text-center">{{$beer->beerAmount}}</td>
                     <td class="btnPlus text-right">
@@ -61,8 +62,13 @@
     </div>
     <div>
         <a href="create" class="mt-4 btn btn-outline-light btn-rounded" data-mdb-ripple-color="dark">Speler toevoegen</a>
+        <a href="prono" class="mt-4 btn btn-outline-light btn-rounded ml-1">Prono</a>
+        <a href="regelement"  class="mt-4 btn btn-outline-light btn-rounded ml-1"><i class="fas fa-list-ul pt-1 pb-1"></i></a>
+    </div>
+    <div>
+        <a href="" class="mt-4 btn btn-outline-light btn-rounded">Premier League</a>
     </div>
 
+
 </section>
-<?php
-require __DIR__ . '/List.blade.php';
+
