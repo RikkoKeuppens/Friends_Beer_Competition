@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css);@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css);@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css);@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css);@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);@charset "UTF-8";
 
 h1 {
   font-size: 30px;
@@ -54,6 +54,10 @@ td {
 }
 
 /* demo styles */
+
+.Blue {
+  background: linear-gradient(to right, #1f9ace, #166fb0);
+}
 
 body {
   background: linear-gradient(to right, #9ccb25, #2ca23c);
@@ -121,6 +125,13 @@ section {
   padding: 5px 10px;
 }
 
+.pron {
+  background-color: #4f78c4;
+  color: #ffffff;
+  border: none;
+  padding: 5px 10px;
+}
+
 .btnPlus {
   padding-bottom: 0;
 }
@@ -153,6 +164,25 @@ input[type=radio] {
 
 .notSelected {
   accent-color: red;
+}
+
+.noclass {
+  color: #ffffff;
+  font-style: normal;
+}
+
+.white {
+  color: #ffffff;
+  margin-bottom: 0;
+}
+
+.noText {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+ul {
+  color: #ffffff;
 }
 
 /*!

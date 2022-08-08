@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Beer;
 use App\Setting;
+use DateTime;
 use Faker\Provider\Person;
 use Illuminate\Http\Request;
 use function PHPUnit\Framework\isEmpty;
@@ -20,7 +21,9 @@ class BeerController extends Controller
         $beers = Beer::orderBy('beerAmount', 'desc')->get();
         $total = 0;
         foreach ($beers as $beer){
-            $total += $beer->beerAmount;
+            if ($beer->id != 10){
+                $total += $beer->beerAmount;
+            }
         }
         $result = compact('beers', 'total');
         return view('List', $result);
@@ -50,6 +53,8 @@ class BeerController extends Controller
         $person = new Beer();
         $person->name = $request->name;
         $person->beerAmount = 0;
+        $person->totaal = 1;
+        $person->hoogste = 1;
         $person->selected = true;
         $person->save();
         return redirect('/');
@@ -111,24 +116,39 @@ class BeerController extends Controller
     {
         $id = $request->remove;
         $beer = Beer::where('id', '=', $id)->first();
-        $beer->delete();
+        if ($beer->id != 1){
+            $beer->delete();
+        }
         $beers = Beer::orderBy('beerAmount', 'desc')->get();
         $result = compact('beers');
-        return view('List', $result);
+        return redirect('/');
     }
 
     public function deletePage()
     {
         $spelers = Beer::get();
-        $result = compact('spelers');
+        $total = 0;
+        foreach ($spelers as $beer){
+            $total += $beer->beerAmount;
+        }
+        $result = compact('spelers', 'total');
         return view('remove', $result);
     }
 
     public function EditProfile(Request $request)
     {
+        $deadline = false;
+        $date_now = new DateTime();
+        $date2    = new DateTime("2022-07-01");
+        if ($date_now < $date2) {
+            $deadline = false;
+        }else{
+            $deadline = true;
+        }
+
         $id = $request->id;
         $person = Beer::where('id', '=', $id)->first();
-        $result = compact('person');
+        $result = compact('person', 'deadline');
         return view('Edit', $result);
     }
 
@@ -141,6 +161,10 @@ class BeerController extends Controller
         $person->selected = $bool;
         if ($request->beerAmount != null)
             $person->beerAmount += $request->beerAmount;
+        if($request->totaal != null){
+            $person->totaal = $request->total;
+            $person->hoogste = $request->hoogste;
+        }
         $person->save();
         return redirect('/');
     }
